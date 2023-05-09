@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 
-from src.gilded_rose import *
+from src.gilded_rose import GildedRose
 from src.item import Item
 
 if __name__ == "__main__":
