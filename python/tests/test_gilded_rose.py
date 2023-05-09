@@ -14,7 +14,6 @@ class TestGildedRose(unittest.TestCase):
         items = [Item("foo", 1, 1)]
         gilded_rose = GildedRose(items)
 
-
     def suite(self):
         suite = unittest.TestSuite()
         suite.addTest(TestGildedRose('test_foo'))

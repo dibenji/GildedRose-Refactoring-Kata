@@ -15,11 +15,21 @@ class TestItem(unittest.TestCase):
         item = Item("foo", 0, 0)
         self.assertEqual(item.quality, 0)
 
+    def test_quality_not_negative(self):
+        item = Item("foo", 0, -1)
+        self.assertGreaterEqual(item.quality, 0)
+
+    def test_quality_not_greater_50(self):
+        item = Item("foo", 0, 51)
+        self.assertLessEqual(item.quality, 50)
+
     def suite(self):
         suite = unittest.TestSuite()
         suite.addTest(TestItem('test_name'))
         suite.addTest(TestItem('test_sell_within_days'))
         suite.addTest(TestItem('test_quality_value'))
+        suite.addTest(TestItem('test_quality_not_negative'))
+        suite.addTest(TestItem('test_quality_not_greater_50'))
         return suite
 
     def __str__(self):
