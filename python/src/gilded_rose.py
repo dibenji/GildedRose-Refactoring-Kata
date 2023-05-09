@@ -1,6 +1,17 @@
-# -*- coding: utf-8 -*-
-
 class GildedRose(object):
+    @classmethod
+    def decrease_quality(cls, item):
+        if (item.quality - 1) < 0:
+            pass
+        else:
+            item.quality -= 1
+
+    @classmethod
+    def increase_quality(cls, item):
+        if (item.quality + 1) > 50:
+            pass
+        else:
+            item.quality += 1
 
     def __init__(self, items):
         self.items = items
@@ -35,5 +46,3 @@ class GildedRose(object):
                 else:
                     if item.quality < 50:
                         item.quality = item.quality + 1
-
-

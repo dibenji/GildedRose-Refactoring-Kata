@@ -1,6 +1,6 @@
 import unittest
-from test_item import TestItem
-from test_gilded_rose import TestGildedRose
+from test_item import suite as item_suite
+from test_gilded_rose import suite as gilded_rose_suite
 
 
 class MainTestSuite(unittest.TestSuite):
@@ -10,6 +10,6 @@ class MainTestSuite(unittest.TestSuite):
 
 if __name__ == '__main__':
     suite = MainTestSuite()
-    suite.addTest(TestItem().suite())
-    suite.addTest(TestGildedRose().suite())
+    suite.addTest(item_suite())
+    suite.addTest(gilded_rose_suite())
     unittest.TextTestRunner(verbosity=2).run(suite)

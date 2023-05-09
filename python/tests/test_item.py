@@ -2,6 +2,16 @@ import unittest
 from src.item import Item
 
 
+def suite():
+    item_suite = unittest.TestSuite()
+    item_suite.addTest(TestItem('test_name'))
+    item_suite.addTest(TestItem('test_sell_within_days'))
+    item_suite.addTest(TestItem('test_quality_value'))
+    item_suite.addTest(TestItem('test_creation_not_possible_with_quality_less_0'))
+    item_suite.addTest(TestItem('test_creation_not_possible_with_quality_greater_50'))
+    return item_suite
+
+
 class TestItem(unittest.TestCase):
     def test_name(self):
         item = Item("foo", 0, 0)
@@ -22,16 +32,6 @@ class TestItem(unittest.TestCase):
     def test_creation_not_possible_with_quality_greater_50(self):
         item = Item("foo", 0, 51)
         self.assertLessEqual(item.quality, 50)
-
-
-    def suite(self):
-        suite = unittest.TestSuite()
-        suite.addTest(TestItem('test_name'))
-        suite.addTest(TestItem('test_sell_within_days'))
-        suite.addTest(TestItem('test_quality_value'))
-        suite.addTest(TestItem('test_creation_not_possible_with_quality_less_0'))
-        suite.addTest(TestItem('test_creation_not_possible_with_quality_greater_50'))
-        return suite
 
     def __str__(self):
         return f"Item Class - {self._testMethodName}"
