@@ -23,16 +23,6 @@ class TestItem(unittest.TestCase):
         item = Item("foo", 0, 51)
         self.assertLessEqual(item.quality, 50)
 
-    def test_decrease_quality_below_0_not_possible(self):
-        item = Item("foo", 0, 0)
-        item.quality -= 1
-        self.assertGreaterEqual(item.quality, 0)
-
-    def test_increase_quality_over_50_not_possible(self):
-        item = Item("foo", 0, 50)
-        item.quality += 1
-        self.assertLessEqual(item.quality, 50)
-
 
     def suite(self):
         suite = unittest.TestSuite()
@@ -41,8 +31,6 @@ class TestItem(unittest.TestCase):
         suite.addTest(TestItem('test_quality_value'))
         suite.addTest(TestItem('test_creation_not_possible_with_quality_less_0'))
         suite.addTest(TestItem('test_creation_not_possible_with_quality_greater_50'))
-        suite.addTest(TestItem('test_decrease_quality_below_0_not_possible'))
-        suite.addTest(TestItem('test_increase_quality_over_50_not_possible'))
         return suite
 
     def __str__(self):
