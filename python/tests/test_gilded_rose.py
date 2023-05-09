@@ -10,6 +10,11 @@ class TestGildedRose(unittest.TestCase):
         gilded_rose.update_quality()
         self.assertEqual("foo", items[0].name)
 
+    def test_test(self):
+        items = [Item("foo", 1, 1)]
+        gilded_rose = GildedRose(items)
+
+
     def suite(self):
         suite = unittest.TestSuite()
         suite.addTest(TestGildedRose('test_foo'))

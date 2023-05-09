@@ -9,11 +9,11 @@ class TestItem(unittest.TestCase):
 
     def test_sell_within_days(self):
         item = Item("foo", 0, 0)
-        self.assertEqual(item.sell_within_days, 0)
+        self.assertEqual(item.sell_in, 0)
 
     def test_quality_value(self):
         item = Item("foo", 0, 0)
-        self.assertEqual(item.quality_value, 0)
+        self.assertEqual(item.quality, 0)
 
     def suite(self):
         suite = unittest.TestSuite()

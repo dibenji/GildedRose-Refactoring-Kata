@@ -1,8 +1,8 @@
 class Item:
-    def __init__(self, name, sell_within_days, quality_value):
+    def __init__(self, name, sell_in, quality):
         self.name = name
-        self.sell_within_days = sell_within_days
-        self.quality_value = quality_value
+        self.sell_in = sell_in
+        self.quality = quality
 
     def __repr__(self):
-        return "%s, %s, %s" % (self.name, self.sell_within_days, self.quality_value)
+        return "%s, %s, %s" % (self.name, self.sell_in, self.quality)
