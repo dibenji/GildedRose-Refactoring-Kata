@@ -15,7 +15,7 @@ class TestItem(unittest.TestCase):
         item = Item("foo", 0, 0)
         self.assertEqual(item.quality, 0)
 
-    def test_creation_not_possible_with_negative_quality(self):
+    def test_creation_not_possible_with_quality_less_0(self):
         item = Item("foo", 0, -1)
         self.assertGreaterEqual(item.quality, 0)
 
@@ -23,12 +23,13 @@ class TestItem(unittest.TestCase):
         item = Item("foo", 0, 51)
         self.assertLessEqual(item.quality, 50)
 
+
     def suite(self):
         suite = unittest.TestSuite()
         suite.addTest(TestItem('test_name'))
         suite.addTest(TestItem('test_sell_within_days'))
         suite.addTest(TestItem('test_quality_value'))
-        suite.addTest(TestItem('test_creation_not_possible_with_negative_quality'))
+        suite.addTest(TestItem('test_creation_not_possible_with_quality_less_0'))
         suite.addTest(TestItem('test_creation_not_possible_with_quality_greater_50'))
         return suite
 
