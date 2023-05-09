@@ -1,17 +1,15 @@
-# -*- coding: utf-8 -*-
 import unittest
+from test_item import TestItem
+from test_gilded_rose import TestGildedRose
 
-from gilded_rose import GildedRose
-from item import Item
 
-
-class GildedRoseTest(unittest.TestCase):
-    def test_foo(self):
-        items = [Item("foo", 0, 0)]
-        gilded_rose = GildedRose(items)
-        gilded_rose.update_quality()
-        self.assertEqual("foo", items[0].name)
+class MainTestSuite(unittest.TestSuite):
+    def run(self, result, debug=False):
+        super().run(result, debug)
 
 
 if __name__ == '__main__':
-    unittest.main()
+    suite = MainTestSuite()
+    suite.addTest(TestItem().suite())
+    suite.addTest(TestGildedRose().suite())
+    unittest.TextTestRunner(verbosity=2).run(suite)
