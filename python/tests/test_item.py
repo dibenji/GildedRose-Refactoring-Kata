@@ -11,6 +11,7 @@ def suite():
     item_suite.addTest(TestItem('test_update_quality_aged_brie'))
     item_suite.addTest(TestItem('test_update_sell_in_aged_brie'))
     item_suite.addTest(TestItem('test_update_quality_twice_if_sell_in_10_days_or_less'))
+    item_suite.addTest(TestItem('test_update_quality_three_times_if_sell_in_5_days_or_less'))
     return item_suite
 
 
@@ -45,6 +46,11 @@ class TestItem(unittest.TestCase):
         item = Item("backstage pass test", 10, 0)
         GildedRose.update_item(item)
         self.assertEqual(item.quality, 2)
+
+    def test_update_quality_three_times_if_sell_in_5_days_or_less(self):
+        item = Item("backstage pass test", 5, 0)
+        GildedRose.update_item(item)
+        self.assertEqual(item.quality, 3)
 
     def __str__(self):
         return f"Item Class - {self._testMethodName}"
