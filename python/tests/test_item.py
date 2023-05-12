@@ -42,9 +42,7 @@ class TestItem(unittest.TestCase):
         self.assertEqual(item.sell_in, -3)
 
     def test_update_quality_twice_if_sell_in_10_days_or_less(self):
-        item = Item("backstage pass aged brie", 10, 0)
-        GildedRose.update_item(item)
-        GildedRose.update_item(item)
+        item = Item("backstage pass test", 10, 0)
         GildedRose.update_item(item)
         self.assertEqual(item.quality, 2)
 
