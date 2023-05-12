@@ -26,7 +26,11 @@ class GildedRose(object):
 
     @classmethod
     def update_backstage_pass(cls, item):
-        if item.sell_in < 11:
+        if 11 > item.sell_in > 5:
+            cls.increase_quality(item)
+            cls.increase_quality(item)
+        elif 5 >= item.sell_in > 0:
+            cls.increase_quality(item)
             cls.increase_quality(item)
             cls.increase_quality(item)
 
