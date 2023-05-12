@@ -21,16 +21,28 @@ class GildedRose(object):
         pass
 
     @classmethod
+    def update_sulfuras(cls, item):
+        pass
+
+    @classmethod
+    def update_backstage_pass(cls, item):
+        pass
+
+    @classmethod
     def update_item(cls, item):
-        if item.name == "Aged Brie":
-            GildedRose.update_aged_brie(item)
+        if "aged brie" in item.name.lower():
+            cls.update_aged_brie(item)
+        elif "sulfuras" in item.name.lower():
+            cls.update_sulfuras(item)
+        elif "backstage pass" in item.name.lower():
+            cls.update_backstage_pass(item)
 
     def __init__(self, items):
         self.items = items
 
     def update_quality(self):
         for item in self.items:
-            GildedRose.update_item(item)
+            self.update_item(item)
 
         for item in self.items:
             if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert":

@@ -23,5 +23,8 @@ class TestItem(unittest.TestCase):
         item = Item("foo", 0, 0)
         self.assertEqual(item.quality, 0)
 
+    def test_update_quality_aged_brie(self):
+        ite,
+
     def __str__(self):
         return f"Item Class - {self._testMethodName}"
