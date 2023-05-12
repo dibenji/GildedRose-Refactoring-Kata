@@ -29,10 +29,12 @@ class GildedRose(object):
         if 11 > item.sell_in > 5:
             cls.increase_quality(item)
             cls.increase_quality(item)
-        elif 5 >= item.sell_in > 0:
+        elif 5 >= item.sell_in >= 0:
             cls.increase_quality(item)
             cls.increase_quality(item)
             cls.increase_quality(item)
+        elif 0 > item.sell_in:
+            item.quality = 0
 
     @classmethod
     def update_item(cls, item):
