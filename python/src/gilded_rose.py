@@ -18,6 +18,7 @@ class GildedRose(object):
 
     @classmethod
     def update_aged_brie(cls, item):
+        item.sell_in -= 1;
         cls.increase_quality(item)
 
     @classmethod
