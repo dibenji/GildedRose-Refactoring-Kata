@@ -18,7 +18,6 @@ class GildedRose(object):
 
     @classmethod
     def update_aged_brie(cls, item):
-        item.sell_in -= 1;
         cls.increase_quality(item)
 
     @classmethod
@@ -37,6 +36,7 @@ class GildedRose(object):
             cls.update_sulfuras(item)
         elif "backstage pass" in item.name.lower():
             cls.update_backstage_pass(item)
+        item.sell_in -= 1
 
     def __init__(self, items):
         self.items = items
