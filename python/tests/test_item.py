@@ -8,10 +8,6 @@ def suite():
     item_suite.addTest(TestItem('test_name'))
     item_suite.addTest(TestItem('test_sell_within_days'))
     item_suite.addTest(TestItem('test_quality_value'))
-    item_suite.addTest(TestItem('test_update_quality_aged_brie'))
-    item_suite.addTest(TestItem('test_update_sell_in_aged_brie'))
-    item_suite.addTest(TestItem('test_update_quality_twice_if_sell_in_10_days_or_less'))
-    item_suite.addTest(TestItem('test_update_quality_three_times_if_sell_in_5_days_or_less'))
     return item_suite
 
 

@@ -9,6 +9,10 @@ def suite():
     gilded_rose_suite.addTest(TestGildedRose('test_decrease_quality_below_0_not_possible'))
     gilded_rose_suite.addTest(TestGildedRose('test_increase_quality_over_50_not_possible'))
     gilded_rose_suite.addTest(TestGildedRose('test_quality_decreases_twice_as_fast_after_sell_date_passed'))
+    gilded_rose_suite.addTest(TestGildedRose('test_update_quality_aged_brie'))
+    gilded_rose_suite.addTest(TestGildedRose('test_update_sell_in_aged_brie'))
+    gilded_rose_suite.addTest(TestGildedRose('test_update_quality_twice_if_sell_in_10_days_or_less'))
+    gilded_rose_suite.addTest(TestGildedRose('test_update_quality_three_times_if_sell_in_5_days_or_less'))
     return gilded_rose_suite
 
 
