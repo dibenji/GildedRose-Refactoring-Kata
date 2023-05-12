@@ -13,6 +13,7 @@ def suite():
     gilded_rose_suite.addTest(TestGildedRose('test_update_sell_in_aged_brie'))
     gilded_rose_suite.addTest(TestGildedRose('test_update_quality_twice_if_sell_in_10_days_or_less'))
     gilded_rose_suite.addTest(TestGildedRose('test_update_quality_three_times_if_sell_in_5_days_or_less'))
+    gilded_rose_suite.addTest(TestGildedRose('test_quality_drops_to_zero_after_concert'))
     return gilded_rose_suite
 
 
@@ -77,6 +78,11 @@ class TestGildedRose(unittest.TestCase):
         item = Item("backstage pass test", 5, 0)
         GildedRose.update_item(item)
         self.assertEqual(item.quality, 3)
+
+    def test_quality_drops_to_zero_after_concert(self):
+        item = Item("backstage pass test", -1, 5)
+        GildedRose.update_item(item)
+        self.assertEqual(item.quality, 0)
 
     def __str__(self):
         return f"Gilded Rose Class - {self._testMethodName}"
