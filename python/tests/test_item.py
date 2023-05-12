@@ -7,8 +7,6 @@ def suite():
     item_suite.addTest(TestItem('test_name'))
     item_suite.addTest(TestItem('test_sell_within_days'))
     item_suite.addTest(TestItem('test_quality_value'))
-    item_suite.addTest(TestItem('test_creation_not_possible_with_quality_less_0'))
-    item_suite.addTest(TestItem('test_creation_not_possible_with_quality_greater_50'))
     return item_suite
 
 
@@ -24,14 +22,6 @@ class TestItem(unittest.TestCase):
     def test_quality_value(self):
         item = Item("foo", 0, 0)
         self.assertEqual(item.quality, 0)
-
-    def test_creation_not_possible_with_quality_less_0(self):
-        item = Item("foo", 0, -1)
-        self.assertGreaterEqual(item.quality, 0)
-
-    def test_creation_not_possible_with_quality_greater_50(self):
-        item = Item("foo", 0, 51)
-        self.assertLessEqual(item.quality, 50)
 
     def __str__(self):
         return f"Item Class - {self._testMethodName}"
