@@ -4,7 +4,10 @@ class GildedRose(object):
         if (item.quality - 1) < 0:
             pass
         else:
-            item.quality -= 1
+            if item.sell_in < 0:
+                item.quality -= 2
+            else:
+                item.quality -= 1
 
     @classmethod
     def increase_quality(cls, item):
@@ -14,8 +17,13 @@ class GildedRose(object):
             item.quality += 1
 
     @classmethod
-    def update_item(cls, item):
+    def update_aged_brie(cls, item):
         pass
+
+    @classmethod
+    def update_item(cls, item):
+        if item.name == "Aged Brie":
+            GildedRose.update_aged_brie(item)
 
     def __init__(self, items):
         self.items = items
