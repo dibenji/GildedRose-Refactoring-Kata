@@ -13,10 +13,17 @@ class GildedRose(object):
         else:
             item.quality += 1
 
+    @classmethod
+    def update_item(cls, item):
+        pass
+
     def __init__(self, items):
         self.items = items
 
     def update_quality(self):
+        for item in self.items:
+            GildedRose.update_item(item)
+
         for item in self.items:
             if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert":
                 if item.name != "Sulfuras, Hand of Ragnaros":

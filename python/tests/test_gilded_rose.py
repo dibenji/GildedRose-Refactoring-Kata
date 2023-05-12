@@ -8,6 +8,7 @@ def suite():
     gilded_rose_suite.addTest(TestGildedRose('test_foo'))
     gilded_rose_suite.addTest(TestGildedRose('test_decrease_quality_below_0_not_possible'))
     gilded_rose_suite.addTest(TestGildedRose('test_increase_quality_over_50_not_possible'))
+    gilded_rose_suite.addTest(TestGildedRose('test_quality_decreases_twice_as_fast_after_sell_date_passed'))
     return gilded_rose_suite
 
 
@@ -41,6 +42,13 @@ class TestGildedRose(unittest.TestCase):
         item = Item("foo", 0, 50)
         GildedRose.increase_quality(item)
         self.assertLessEqual(item.quality, 50)
+
+    def test_quality_decreases_twice_as_fast_after_sell_date_passed(self):
+        item = Item("foo", -1, 25)
+        GildedRose.decrease_quality(item)
+        GildedRose.decrease_quality(item)
+        GildedRose.decrease_quality(item)
+        self.assertEqual(item.quality, 19)
 
     def __str__(self):
         return f"Gilded Rose Class - {self._testMethodName}"
