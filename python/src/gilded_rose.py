@@ -38,7 +38,7 @@ class GildedRose(object):
 
     @classmethod
     def update_item(cls, item):
-        if "aged brie" in item.name.lower():
+        if item.name.lower() == "aged brie":
             cls.update_aged_brie(item)
         elif "sulfuras" in item.name.lower():
             cls.update_sulfuras(item)
