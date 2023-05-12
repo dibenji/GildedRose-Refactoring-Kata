@@ -18,7 +18,7 @@ class GildedRose(object):
 
     @classmethod
     def update_aged_brie(cls, item):
-        pass
+        cls.increase_quality(item)
 
     @classmethod
     def update_sulfuras(cls, item):
