@@ -36,8 +36,9 @@ class GildedRose(object):
         elif 0 > item.sell_in:
             item.quality = 0
 
-    def update_conjured_item(self):
-        pass
+    @classmethod
+    def update_conjured_item(self, item):
+        item.quality -= 2
 
     @classmethod
     def update_item(cls, item):
@@ -47,6 +48,8 @@ class GildedRose(object):
             cls.update_sulfuras(item)
         elif "backstage pass" in item.name.lower():
             cls.update_backstage_pass(item)
+        elif "conjured" in item.name.lower():
+            cls.update_conjured_item(item)
         item.sell_in -= 1
 
     def __init__(self, items):
@@ -55,27 +58,3 @@ class GildedRose(object):
     def update_quality(self):
         for item in self.items:
             self.update_item(item)
-
-        # for item in self.items:
-        #     if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert":
-        #         if item.name != "Sulfuras, Hand of Ragnaros":
-        #             GildedRose.decrease_quality(item)
-        #     else:
-        #         GildedRose.increase_quality(item)
-        #         if item.name == "Backstage passes to a TAFKAL80ETC concert":
-        #             if item.sell_in < 11:
-        #                 GildedRose.increase_quality(item)
-        #             if item.sell_in < 6:
-        #                 GildedRose.increase_quality(item)
-        #
-        #     if item.name != "Sulfuras, Hand of Ragnaros":
-        #         item.sell_in = item.sell_in - 1
-        #     if item.sell_in < 0:
-        #         if item.name != "Aged Brie":
-        #             if item.name != "Backstage passes to a TAFKAL80ETC concert":
-        #                 if item.name != "Sulfuras, Hand of Ragnaros":
-        #                     GildedRose.decrease_quality(item)
-        #             else:
-        #                 item.quality = item.quality - item.quality
-        #         else:
-        #             GildedRose.increase_quality(item)
